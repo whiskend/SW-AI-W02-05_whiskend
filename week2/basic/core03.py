@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/powx-n/?envType=study-plan-v2&envId=top-interview-150
+
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         answer = float(1)
