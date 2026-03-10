@@ -68,3 +68,38 @@ print(answer)
 
 # if __name__ == "__main__":
 #     backtrack()
+
+
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        letter = [None] * 10
+        letter[2] = ["a", "b", "c"]
+        letter[3] = ["d", "e", "f"]
+        letter[4] = ["g", "h", "i"]
+        letter[5] = ["j", "k", "l"]
+        letter[6] = ["m", "n", "o"]
+        letter[7] = ["p", "q", "r", "s"]
+        letter[8] = ["t", "u", "v"]
+        letter[9] = ["w", "x", "y", "z"]
+
+        count = 0
+        digit = list(map(int, digits.split()))
+        input_length = len(digit) # 2
+
+        if count == input_length:
+            answer.append(c)
+            return
+
+        answer = []
+        i = 0
+        c = ""
+
+        for next in digit:
+            c = c + letter[next][i]
+            i += 1
+            
+            letterCombination
+            count += 1
+            c = c[:i] + c[i+1:]
+
+        return answer
