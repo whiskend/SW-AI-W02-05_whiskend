@@ -2,11 +2,9 @@
 # 문제 링크: https://www.acmicpc.net/problem/1914
 
 def hanoi(N, fr, mid, to):
-    
     if (N == 1):
         print(fr + " " + to)
         return
-
     hanoi(N - 1, fr, to, mid)
     print(fr + " " + to)
     hanoi(N - 1, mid, fr, to)

@@ -7,7 +7,6 @@ def solution():
     N = int(input())
     A = list(map(int, input().split()))
 
-    print(A)
     answer = -float('inf')
     for p in permutations(A):
         result = 0
