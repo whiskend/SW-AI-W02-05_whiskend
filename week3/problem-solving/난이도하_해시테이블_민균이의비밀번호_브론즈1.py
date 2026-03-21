@@ -9,4 +9,4 @@ def find():
             return len(word), word[len(word)//2]
 
 if __name__ == "__main__":
-    print(find())
+    print(*find())
