@@ -1,31 +1,3 @@
-"""
-[위상 정렬 - Topological Sort]
-
-문제 설명:
-- 방향 그래프에서 순서를 정합니다.
-- 선행 작업이 먼저 오도록 정렬합니다.
-- 예: 과목 선수과목, 작업 순서
-
-입력:
-- graph: 방향 그래프
-- vertices: 정점 개수
-
-출력:
-- 위상 정렬 순서
-
-예제:
-과목:
-0(기초) → 1(중급) → 3(고급)
-0(기초) → 2(응용)
-
-위상 정렬: [0, 1, 2, 3] 또는 [0, 2, 1, 3]
-
-힌트:
-- 진입 차수(in-degree) 사용
-- 진입 차수가 0인 정점부터 시작
-- 큐 사용
-"""
-
 from collections import deque
 
 def topological_sort(vertices, edges):
@@ -39,21 +11,35 @@ def topological_sort(vertices, edges):
     Returns:
         위상 정렬 순서
     """
-    # TODO: 그래프와 진입 차수 초기화
-    pass
+    # 그래프와 진입 차수 초기화
+    graph = [[] for _ in range(vertices)]
+    in_degree = [0] * vertices
     
-    # TODO: 그래프 구성 및 진입 차수 계산
-    pass
+    # 그래프 구성 및 진입 차수 계산
+    for start, end in edges:
+        graph[start].append(end)
+        in_degree[end] += 1
     
-    # TODO: 진입 차수가 0인 정점들을 큐에 추가
-    pass
+    # 진입 차수가 0인 정점들을 큐에 추가
+    queue = deque()
+    for i in range(vertices):
+        if in_degree[i] == 0:
+            queue.append(i)
     
     result = []
     
-    # TODO: 큐가 빌 때까지 반복
-    ## 큐에서 정점 꺼내기
-    ## 인접한 정점들의 진입 차수 감소
-    pass
+    # 큐가 빌 때까지 반복
+    while queue:
+        # 큐에서 정점 꺼내기
+        current = queue.popleft()
+        result.append(current)
+        
+        # 인접한 정점들의 진입 차수 감소
+        for neighbor in graph[current]:
+            in_degree[neighbor] -= 1
+            
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
     
     return result
 
