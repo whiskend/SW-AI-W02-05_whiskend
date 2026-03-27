@@ -24,7 +24,7 @@
 
 def select_meetings(meetings):
     """
-    회의실 배정 (그리디)
+    회의실 배정 (그리디)    
     
     Args:
         meetings: [(시작, 종료)] 리스트
@@ -33,19 +33,24 @@ def select_meetings(meetings):
         (배정된 회의 개수, 선택된 회의 리스트)
     """
     # TODO: 회의가 없으면 0 반환
-    pass
+    if meetings is None:
+        return 0
     
     # TODO: 종료 시간 기준으로 정렬
-    pass
-    
+    meetings.sort(key = lambda x: (x[1], x[0]))
     selected = []
     
     # TODO: 첫 번째 회의 선택
-    pass
+    selected.append(meetings[0])
     
     # TODO: 나머지 회의들 확인
     ## 이전 회의가 끝난 후 시작하는 회의만 선택
-    pass
+    i = 0
+    for meeting in meetings:
+        if meeting[0] > selected[i][1]:
+            selected.append(meeting)
+            i += 1
+
     
     return len(selected), selected
 
