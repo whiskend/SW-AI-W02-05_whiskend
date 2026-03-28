@@ -15,7 +15,6 @@ def tile(N):
         temp = n_1 + n_2
         n_2 = n_1
         n_1 = temp % 15746
-        print(f"n_1: {n_1} n_2: {n_2} for: temp: {temp}")
 
     return n_1
 
